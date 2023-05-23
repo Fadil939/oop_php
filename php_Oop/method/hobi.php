@@ -1,6 +1,6 @@
 <?php 
 
-class Hobi{
+class Hobii{
     //membaca komik,
     public $judul ='judul',
             $type ='type',
@@ -12,7 +12,7 @@ class Hobi{
     }
 }
 
-$Hobi1 =new Hobi();
+$Hobi1 =new Hobii();
 $Hobi1->judul="solo leveling";
 $Hobi1->gendre="action,drama,super power";
 
