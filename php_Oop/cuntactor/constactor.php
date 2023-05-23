@@ -31,3 +31,5 @@ echo "<br>";
 echo "komik : " .$Hobi1->getLabel();
 echo "<br>"; 
 echo "Game : " .$Hobi2->getLabel();
+
+//pppppppp
