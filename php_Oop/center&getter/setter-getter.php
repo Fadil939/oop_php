@@ -12,18 +12,53 @@ use CetakInfoHobi as GlobalCetakInfoHobi;
 
 class Hobi{
   //membaca komik,
-  public $judul ='judul',
+  private $judul ='judul',
   $penerbit ='penerbit',
   $gendre ='gendre';
-
-  protected $diskon =0;
+  private $diskon =0;
   private $harga = 0;
+  
+  public function getJudul(){
+    return $this->judul;
+  }
+  public function setJudul($judul){
+    if(!is_string($judul)){
+      throw new Exception("Judul harus berupa String(huruf)", 1);
+       
+    }
+    $this->judul =$judul;
+  }
+  public function getPenerbit(){
+    return $this->penerbit;
+  }
 
+  public function setPenerbit($penerbit){
+    $this->penerbit =$penerbit ;
+  }
+
+  public function getGendre(){
+    return $this->gendre;
+  }
+
+  public function setGendre($gendre){
+    $this->gendre =$gendre ;
+  }
+
+  public function setDiskon($diskon){
+    $this->diskon =$diskon ;
+  }
+  
+  public function setHarga($harga){
+    $this->harga =$harga ;
+  }
  
-
   public function getHarga(){
     return $this->harga - ($this->harga * $this->diskon /100 );
   }
+
+ 
+
+  
 
   public function __construct($judul ="judul",$penerbit ="penerbit",$gendre="gendre",
         $harga =0 ){
@@ -77,10 +112,6 @@ class Game extends Hobi{
     $this->waktuMain =$waktuMain;
   }
 
-  public function setDiskon($diskon){
-    $this->diskon =$diskon ;
-  }
-
   public function getInfoLengkap()
   {
     $str ="Game : ". parent::getInfoLengkap() ." - {$this->waktuMain} Jam .";
@@ -105,5 +136,6 @@ echo"<br>";
 echo $hobi2->getInfoLengkap();
 
 echo"<hr>";
-$hobi2->setDiskon(60);
-echo $hobi2->getharga();
+$hobi2->setDiskon(50);
+$hobi2->setHarga(50000);
+echo $hobi2->getPenerbit();
