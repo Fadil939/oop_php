@@ -1,0 +1,10 @@
+interfaces 
+kelas abstract yang sama sekali tidak memiliki implementasi
+murni merupakan template untuk kelas keturunannya 
+tidak boleh memiliki proferty hanya deklarasi method saja 
+semua method harus didekalarasi dengan visibility public
+boleh mendeklarasikan __construct
+satu kelas turunannya boleh mengimplementasikan banyak interface 
+
+dengan mengunakan type-hinting dapat melakukan 'dependency injection'
+pada akhirnya mencapai polymorphism 
