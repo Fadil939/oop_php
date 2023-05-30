@@ -8,6 +8,8 @@
 //protected = hanya untuk keturunan nya
 //private = hanya bisa di gunakan di dalam class /tidak untuk di luar
 
+use InfoHobi as GlobalInfoHobi;
+
 interface InfoHobi {
    public function getInfoHobi();
 }
@@ -15,10 +17,18 @@ interface InfoHobi {
   abstract class Hobi{
   //membaca komik,
   protected $judul ='judul',
-  $penerbit ='penerbit',
-  $gendre ='gendre',
-  $diskon =0,
-  $harga = 0;
+            $penerbit ='penerbit',
+            $gendre ='gendre',
+            $diskon =0,
+             $harga = 0;
+  
+  public function __construct($judul ="judul",$penerbit ="penerbit",$gendre="gendre",
+        $harga =0 ){
+    $this->judul =$judul;
+    $this->penerbit =$penerbit;
+    $this->gendre =$gendre;
+    $this->harga =$harga;
+    }
   
   public function getJudul(){
     return $this->judul;
@@ -57,15 +67,6 @@ interface InfoHobi {
   public function getHarga(){
     return $this->harga - ($this->harga * $this->diskon /100 );
   }
-
-  public function __construct($judul ="judul",$penerbit ="penerbit",$gendre="gendre",
-        $harga =0 ){
-    $this->judul =$judul;
-    $this->penerbit =$penerbit;
-    $this->gendre =$gendre;
-    $this->harga =$harga;
-    }
-
   public function getLabel(){
       return "$this->penerbit , $this->gendre";
   }
@@ -74,7 +75,7 @@ interface InfoHobi {
 
 }
 
-class Komik extends Hobi{
+class Komik extends Hobi implements GlobalInfoHobi{
     public $jmlHalaman;  
 
     public function __construct($judul ="judul",$penerbit ="penerbit",$gendre="gendre",
@@ -100,7 +101,7 @@ class Komik extends Hobi{
     }  
 }
 
-class Game extends Hobi{
+class Game extends Hobi implements GlobalInfoHobi{
   public $waktuMain;
 
   public function __construct($judul ="judul",$penerbit ="penerbit",$gendre="gendre",
